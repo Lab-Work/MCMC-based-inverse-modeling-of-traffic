@@ -1,4 +1,4 @@
 .DS_Store
-.aux
-.log
-.out
+*.aux
+*.log
+*.out

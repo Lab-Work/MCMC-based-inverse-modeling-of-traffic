@@ -245,7 +245,7 @@ left=(papersize(1)-width)/2;
 bottom=(papersize(2)-height)/2;
 myfiguresize = [left,bottom,width,height];
 set(gcf, 'PaperPosition', myfiguresize);
-print('-dpsc2','fourDiagramChains.eps')
-system('epstopdf fourDiagramChains.eps')
+print('-dpsc2','figs/fourDiagramChains.eps')
+system('epstopdf figs/fourDiagramChains.eps')
 
 

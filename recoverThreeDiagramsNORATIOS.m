@@ -224,17 +224,7 @@ left=(papersize(1)-width)/2;
 bottom=(papersize(2)-height)/2;
 myfiguresize = [left,bottom,width,height];
 set(gcf, 'PaperPosition', myfiguresize);
-print('-dpsc2','threeDiagramChainsNoRatios.eps')
-system('epstopdf threeDiagramChainsNoRatios.eps')
-%figure
-%[positionMean]=mean(anomalyBoundaries)
-%[numLanesMean]=getLaneVector(numberOfMainLanes,numberOfAnomalyLanes,positionMean(1),positionMean(2),numCells,domainLengthInmiles);
-%stem(numLanesMean)
+print('-dpsc2','figs/threeDiagramChainsNoRatios.eps')
+system('epstopdf figs/threeDiagramChainsNoRatios.eps')
 
 
-
-%%
-figure
-scatter3(Vinit(burnIn:end),Wf(burnIn:end),likelihoods(burnIn:end),[],likelihoods(burnIn:end),'filled')
-view([-42 78])
-%contour(Rhocrit,Wf,likelihoods)

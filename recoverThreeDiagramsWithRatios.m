@@ -232,8 +232,8 @@ left=(papersize(1)-width)/2;
 bottom=(papersize(2)-height)/2;
 myfiguresize = [left,bottom,width,height];
 set(gcf, 'PaperPosition', myfiguresize);
-print('-dpsc2','threeDiagramChains.eps')
-system('epstopdf threeDiagramChains.eps')
+print('-dpsc2','figs/threeDiagramChains.eps')
+system('epstopdf figs/threeDiagramChains.eps')
 
 %%
 rhomax=rhocritmean;
@@ -291,7 +291,7 @@ colormap(jet)
 %set(gca,'Clim',[0 80])
 xlabel('{\it t}')
 ylabel('postmile')
-colorbar('location','east')
+colorbar('location','eastoutside')
 set(gcf, 'PaperUnits', 'inches');
 papersize=[4 4];
 set(gcf, 'PaperSize',papersize);
@@ -301,6 +301,6 @@ left=(papersize(1)-width)/2;
 bottom=(papersize(2)-height)/2;
 myfiguresize = [left,bottom,width,height];
 set(gcf, 'PaperPosition', myfiguresize);
-print('-dpsc2','meanFieldThreeDiagramsRatios.eps')
-system('epstopdf meanFieldThreeDiagramsRatios.eps')
+print('-dpsc2','figs/meanFieldThreeDiagramsRatios.eps')
+system('epstopdf figs/meanFieldThreeDiagramsRatios.eps')
 

@@ -1,0 +1,100 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{babel}
+\begin{document}
+
+\title{README for ``Markov Chain Monte Carlo based inverse modeling of
+traffic flows using GPS data'' MATLAB source code}
+
+
+\author{Olli-Pekka Tossavainen and Daniel B. Work}
+\maketitle
+\begin{abstract}
+This document describes the implementation of the Markov Chain Monte
+Carlo algorithm for estimating traffic flow model parameters from
+GPS data, introduced in the article ``Markov Chain Monte Carlo based
+inverse modeling of traffic flows using GPS data'' by Tossavainen
+and Work, accepted for publication in Networks and Heterogeneous Media.
+A preprint of the article is available for download on the second
+author's website. The source code is hosted at \url{https://github.com/dbwork/MCMC-based-inverse-modeling-of-traffic}.
+\end{abstract}
+
+\section{License}
+
+This software is licensed under the \emph{University of Illinois/NCSA
+Open Source License}:
+
+\begin{center}
+Copyright (c) 2013 The Board of Trustees of the University of Illinois.
+All rights reserved.
+\par\end{center}
+
+\begin{center}
+Developed by: Department of Civil and Environmental Engineering University
+of Illinois at Urbana-Champaign \url{https://github.com/dbwork/MCMC-based-inverse-modeling-of-traffic}
+\par\end{center}
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the \textquotedbl{}Software\textquotedbl{}),
+to deal with the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom
+the Software is furnished to do so, subject to the following conditions:
+Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimers. Redistributions
+in binary form must reproduce the above copyright notice, this list
+of conditions and the following disclaimers in the documentation and/or
+other materials provided with the distribution. Neither the names
+of the Department of Civil and Environmental Engineering, the University
+of Illinois at Urbana-Champaign, nor the names of its contributors
+may be used to endorse or promote products derived from this Software
+without specific prior written permission.
+
+THE SOFTWARE IS PROVIDED \textquotedbl{}AS IS\textquotedbl{}, WITHOUT
+WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+AND NONINFRINGEMENT. IN NO EVENT SHALL THE CONTRIBUTORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH
+THE SOFTWARE.
+
+
+\section{Publishing results using this software}
+
+We kindly ask any future publications using this software include
+a reference to the following publication:
+
+Tossavainen, O.-P. and D. B. Work, ``Markov Chain Monte Carlo based
+inverse modeling of traffic flows using GPS data'' \emph{accepted
+for publication in} \emph{Networks and Heterogeneous Media}, 2013.
+
+\section{Structure of the code}
+Below we give a description of scripts included in the software.
+\begin{itemize}
+\item \begin{verbatim}updateVehicleWithRiemannSendingReceiving.m\end{verbatim} 
+contains the implementation of the Algorithm 2 presented in the publication  
+
+\item \begin{verbatim}updatevHalfCFLAndSimulateVehicle.m\end{verbatim} can be used to 
+simulate one vehicle trajectory given an initial velocity field. The script produces a full evolution of the
+velocity field using Godunov scheme while updating the vehicle position using Algorithm 2 in the publication.
+
+\item \begin{verbatim}updatev.m\end{verbatim} can be used to compute evolution of the velocity field using Godunov scheme.
+
+\end{itemize}
+\section{Running the code}
+The provided m-files can be used to reproduce the results presented in the publication.
+\begin{enumerate}
+\item Create the true state (velocity field and vehicle trajectories) by running
+ \begin{verbatim}simulateTrueStateUsingRiemannSolver.m\end{verbatim}
+ \item Run the 3-link parameter estimation with poor mixing of the chain using script
+ \begin{verbatim}recoverThreeDiagramsNORATIOS.m\end{verbatim}
+ \item Run the 3-link parameter estimation with good mixing of the chain using script
+ \begin{verbatim}recoverThreeDiagramsWithRatios.m\end{verbatim}
+ \item Run the 4-link parameter estimation with good mixing of the chain using script
+ \begin{verbatim}recoverFourDiagramsWithRatios.m\end{verbatim}
+\end{enumerate}
+\end{document}
